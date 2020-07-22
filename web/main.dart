@@ -1,6 +1,17 @@
 import 'package:angular/angular.dart';
-import 'package:courses/app_component.template.dart' as ng;
+import 'package:angular_router/angular_router.dart';
+// ignore: library_prefixes
+import 'package:courses/app_component.template.dart' as App;
 
+import 'main.template.dart' as self;
+
+@GenerateInjector(
+  routerProvidersHash,
+)
+final InjectorFactory injector = self.injector$Injector;
 void main() {
-  runApp(ng.AppComponentNgFactory);
+  runApp(
+    App.AppComponentNgFactory,
+    createInjector: injector,
+  );
 }
