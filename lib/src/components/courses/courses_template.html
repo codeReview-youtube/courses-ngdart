@@ -1,1 +1,12 @@
-<p>Courses page works</p>
+<div class="container">
+  <h2 class="col-12 text-left display-3">Courses</h2>
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4" *ngIf="courses.isEmpty">
+      No courses found or available
+    </div>
+    <div class="col mb-4" *ngFor="let course of courses">
+      <course-card [selectedCourse]="course" (onDelete)="deleteItem(course.uid)"></course-card>
+    </div>
+  </div>
+
+</div>

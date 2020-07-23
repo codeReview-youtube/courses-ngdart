@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header">
+    <img class="card-img" [src]="course.image" width="100%" height="auto">
+  </div>
+  <div class="card-body">
+    <div class="card-text d-flex align-items-center">
+      <p *ngFor="let tag of course.tags" class="mx-2 badge badge-warning py-2 lead">
+        {{tag}}
+      </p>
+    </div>
+    <h5 class="card-title display-4">{{course.title}}</h5>
+    <p class="card-text lead">{{course.price}} $</p>
+    <p class="card-text lead">{{course.author}}</p>
+    <p class="card-text lead">Lectures: {{course.lectures.length}}</p>
+    <p class="card-text lead">Duration: {{course.duration}} hour(s)</p>
+    <p class="card-text">{{course.description}}</p>
+  </div>
+  <div class="card-footer d-flex justify-content-between align-items-center">
+    <div>
+      <button class="btn btn-success" type="button">
+        View Details
+      </button>
+      <button class="btn btn-warning" type="button" (click)="deleteItem()">
+        Delete
+      </button>
+    </div>
+    <p class="card-text">{{course.updateAt}}</p>
+  </div>
+</div>
