@@ -1,12 +1,16 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:courses/src/directives/highlight_dir.dart';
 import 'package:courses/src/model/course_model.dart';
 
 @Component(
   selector: 'course-card',
   templateUrl: './card_template.html',
-  directives: [coreDirectives],
+  directives: [
+    coreDirectives,
+    HighlightDirective,
+  ],
   providers: [],
 )
 class CourseCard {
