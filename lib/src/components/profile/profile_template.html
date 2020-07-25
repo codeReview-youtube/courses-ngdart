@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md m-3 align-items-center justify-content-center d-flex">
+    <img [src]="profile.image" alt="profile image" class="img-fluid" width="300" height="300">
+  </div>
+  <ul class="list-group col-md">
+    <li class="list-group-item d-flex justify-content-between align-items-center w-100">
+      <div *ngIf="!editMode" class="d-flex justify-content-between align-items-center w-100">
+        <h3 class="text-center w-100">{{profile.name}}</h3>
+        <i class='im im-pencil' (click)="editMode=true"></i>
+      </div>
+      <div *ngIf="editMode" class="d-flex justify-content-between align-items-center w-100">
+        <input class="form-control w-75" type="text" name="name" [(ngModel)]="profile.name">
+        <i class='im im-check-mark' (click)='editMode=false'></i>
+      </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-center align-items-center disabled" aria-disabled="true">
+      <i class='im im-mail mx-2 text-muted'></i>
+      <h4>{{profile.email}}</h4>
+    </li>
+    <li class="list-group-item d-flex justify-content-center align-items-center" aria-disabled="true">
+      <i class='im im-graduation-hat mx-2 text-muted'></i>
+      <h4>{{profile.finishedCourses.length}} courses</h4>
+    </li>
+    <li class="list-group-item d-flex justify-content-center align-items-center" aria-disabled="true">
+      <i class='im im-history mx-2 text-muted'></i>
+      <h4>{{profile.courses.length}} courses</h4>
+    </li>
+    <li class="list-group-item d-flex justify-content-center align-items-center" aria-disabled="true">
+      <i class='im im-award mx-2 text-warning'></i>
+      <h4>{{profile.badge | uppercase}}</h4>
+    </li>
+    <li class="list-group-item" aria-disabled="true">
+      <h6 class="text-center text-muted">Last update: {{profile.updateAt}}</h6>
+    </li>
+  </ul>
+</div>

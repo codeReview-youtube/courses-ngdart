@@ -5,6 +5,7 @@ String idParam = 'id';
 class RoutePaths {
   static final courses = RoutePath(path: 'crouses');
   static final home = RoutePath(path: '/');
+  static final profile = RoutePath(path: '/profile');
   static final course_detail = RoutePath(path: '${courses.path}/:${idParam}');
 }
 
