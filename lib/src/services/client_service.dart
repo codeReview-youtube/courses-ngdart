@@ -83,4 +83,15 @@ class ClientService extends HelperService {
       throw simplifyError(e);
     }
   }
+
+  Future<List<Course>> search(String term) async {
+    try {
+      final res = await _client.get('$_base/?title=$term');
+      return (extractData(res) as List)
+          .map((json) => Course.fromJson(json))
+          .toList();
+    } catch (e) {
+      throw simplifyError(e);
+    }
+  }
 }

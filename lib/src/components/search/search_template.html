@@ -1,0 +1,16 @@
+<div class="col" style="position: relative;">
+  <div class="form-inline row">
+    <input class="form-control col" type="search" placeholder="Search by title" aria-label="Search courses" #searchInput
+      (onChange)="change(searchInput.value);" (keyup)="change(searchInput.value)">
+  </div>
+  <div style="position: absolute;top: 40px;left: 0;
+        z-index: 10;width: 100%; background-color: #242528;
+        display: block;">
+    <div class='list-group bg-dark' *ngFor="let course of courses | async"
+      (click)="toDetail(course); searchInput.value=''">
+      <span class="list-group-item" style="cursor: pointer;">
+        {{course.title}}
+      </span>
+    </div>
+  </div>
+</div>

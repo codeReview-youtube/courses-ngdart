@@ -11,6 +11,7 @@ dependencies:
   angular_components: ^0.13.0
   angular_router: ^2.0.0-alpha+21
   angular_forms: ^2.1.0
+  stream_transform: ^0.0.19
   uuid: ^2.2.0
   intl:
   http: ^0.12.0
