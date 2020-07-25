@@ -58,10 +58,11 @@ class ClientService extends HelperService {
   }
 
   // delete
-  Future<Response> deleteCourse(String uid) async {
+  Future<String> deleteCourse(String uid) async {
     try {
       final url = '$_base/$uid';
-      return await _client.delete(url, headers: _headers);
+      final res = await _client.delete(url, headers: _headers);
+      return 'deleted ${uid} is successed with status:${res.statusCode}';
     } catch (e) {
       throw simplifyError(e);
     }

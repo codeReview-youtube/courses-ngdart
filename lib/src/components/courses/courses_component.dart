@@ -25,13 +25,18 @@ class CoursesComponent implements OnInit {
 
   List<Course> courses = [];
 
-  void deleteItem(String uid) {
-    this._courseService.deleteCourse(uid);
+  void deleteItem(String uid) async {
+    var course = this.courses.firstWhere((cr) => cr.uid == uid);
+    if (selected == course) {
+      selected = null;
+    }
+    await this._courseService.deleteCourse(uid);
+    this.courses.removeWhere((element) => element.uid == uid);
   }
 
   @override
-  void ngOnInit() {
-    courses = _courseService.getAll();
+  void ngOnInit() async {
+    courses = await this._courseService.getAll();
   }
 
   Future<NavigationResult> viewDetail(Course course) async {

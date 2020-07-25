@@ -20,7 +20,7 @@ import 'package:courses/src/utils/routes.dart';
     <course-card
             *ngIf='selected != null'
             (onDelete)="deleteCourse()"
-           (onViewDetail)="enrollCourse()"
+            (onViewDetail)="enrollCourse()"
             firstBtnTitle="Enroll"
             [selectedCourse]='selected'>
     </course-card>
@@ -38,7 +38,7 @@ class CourseDetail implements OnActivate {
   void onActivate(RouterState previous, RouterState current) async {
     final uid = getId(current.parameters);
     if (uid != null) {
-      selected = await _courseService.getSingleCourse(uid);
+      selected = await this._courseService.getSingle(uid);
     }
   }
 
