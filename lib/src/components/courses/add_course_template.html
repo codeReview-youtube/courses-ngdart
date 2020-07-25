@@ -1,11 +1,11 @@
 <div class="row my-4">
   <button class="btn btn-lg btn-primary btn-block" *ngIf="!addMode" (click)="addMode=true;">+ Add</button>
   <div class="col-md mt-4 mb-4" *ngIf="addMode">
-    <label for='title'>Title: </label>
+    <label class="text-muted" for='title'>Title: </label>
     <input class="form-control my-2" [(ngModel)]="title" name="title">
-    <label for='author'>Author: </label>
+    <label class="text-muted" for='author'>Author: </label>
     <input class="form-control my-2" name="author" [(ngModel)]="author">
-    <label for='price'>Price: </label>
+    <label class="text-muted" for='price'>Price: </label>
     <input class="form-control my-2" type="number" [(ngModel)]="price" name="price">
     <button class="btn btn-success" (click)="addCourse()">
       + Add Course</button>
