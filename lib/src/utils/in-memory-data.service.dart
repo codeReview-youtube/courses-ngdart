@@ -91,7 +91,7 @@ class InMemoryData extends MockClient {
         var course = Course(uuid.v4(), title, author, price);
 
         _coursesDB.add(course);
-        data = course;
+        data = _coursesDB;
         break;
 
       case 'PUT':

@@ -1,3 +1,6 @@
+import 'package:angular_components/model/date/date_formatter.dart';
+import 'package:intl/intl.dart';
+
 class Course {
   final String uid;
   String title;
@@ -15,11 +18,11 @@ class Course {
     this.title,
     this.author,
     this.price, [
-    this.description,
-    this.duration,
-    this.image,
-    this.lectures,
-    this.tags,
+    this.description = '',
+    this.duration = 0.0,
+    this.image = 'https://tinyurl.com/yy2s9ntd',
+    this.lectures = const [],
+    this.tags = const [],
     this.updateAt,
   ]);
 

@@ -35,7 +35,7 @@ class ClientService extends HelperService {
     }
   }
 
-  Future<Course> createCourse(
+  Future<List<Course>> createCourse(
     String title,
     String author,
     double price,
@@ -51,7 +51,9 @@ class ClientService extends HelperService {
         }),
       );
 
-      return Course.fromJson(extractData(res));
+      return (extractData(res) as List)
+          .map((json) => Course.fromJson(json))
+          .toList();
     } catch (e) {
       throw simplifyError(e);
     }

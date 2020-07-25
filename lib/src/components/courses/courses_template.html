@@ -1,4 +1,5 @@
 <div class="container">
+  <add-course (onAdd)="addCourse($event)"></add-course>
   <h2 class="col-12 text-left display-3">Courses</h2>
   <div class="row row-cols-1 row-cols-md-2">
     <div class="col mb-4" *ngIf="courses.isEmpty">
