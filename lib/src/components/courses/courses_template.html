@@ -5,7 +5,8 @@
       No courses found or available
     </div>
     <div class="col mb-4" *ngFor="let course of courses">
-      <course-card [selectedCourse]="course" (onDelete)="deleteItem(course.uid)"></course-card>
+      <course-card [selectedCourse]="course" firstBtnTitle="View details" (onDelete)="deleteItem(course.uid)"
+        (onViewDetail)="viewDetail(course)"></course-card>
     </div>
   </div>
 

@@ -13,12 +13,23 @@ class CourseCard {
   @Input('selectedCourse')
   Course course;
 
+  @Input('firstBtnTitle')
+  String firstBtnTitle;
+
   final StreamController _deleteCtrl = StreamController();
+  final StreamController _viewDetailCtrl = StreamController();
 
   @Output('onDelete')
   Stream get onDelete => _deleteCtrl.stream;
 
+  @Output('onViewDetail')
+  Stream get onViewDetail => _viewDetailCtrl.stream;
+
   void deleteItem() {
     _deleteCtrl.sink.add(null);
+  }
+
+  void viewDetail() {
+    _viewDetailCtrl.sink.add(null);
   }
 }

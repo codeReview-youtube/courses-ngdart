@@ -22,4 +22,8 @@ class Course {
     this.tags,
     this.updateAt,
   ]);
+
+  String toString() {
+    return '$uid => $title';
+  }
 }

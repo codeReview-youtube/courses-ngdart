@@ -7,13 +7,14 @@ include: package:pedantic/analysis_options.yaml
 # Uncomment to specify additional rules.
 # linter:
 #   rules:
-#     - camel_case_types
+#     - unnecessary_this
 
 analyzer:
   exclude: [build/**]
   errors:
     uri_has_not_been_generated: ignore
+    unnecessary_this: ignore
   # Angular plugin support is in beta. You're welcome to try it and report
   # issues: https://github.com/dart-lang/angular_analyzer_plugin/issues
   # plugins:
-    # - angular
+  # - angular
