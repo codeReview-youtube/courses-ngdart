@@ -1,0 +1,32 @@
+<div class='row'>
+  <p *ngIf='selected == null'>
+    No Selected Course or unknown
+  </p>
+  <div *ngIf='selected != null'>
+    <div class='row'>
+      <div class="col-md" *ngIf="!editMode">
+        <button class="btn btn-warning btn-lg btn-block my-3
+          d-flex
+            justify-content-center align-items-center" (click)='editMode= true;'>
+          <i class="im im-pencil mr-3"></i>
+          Update Course
+        </button>
+      </div>
+      <div class='col-md' *ngIf='editMode'>
+        <button class="btn btn-warning btn-lg btn-block my-3 d-flex
+            justify-content-center align-items-center
+          " (click)='update(); editMode=false'>
+          <i class="im im-check-mark mr-3"></i>
+          <span>Done</span>
+        </button>
+      </div>
+      <div *ngIf='editMode' class="mb-3 form-group col-md">
+        <label for='title'>Title:</label>
+        <input class='form-control' name='title' [(ngModel)]='selected.title' />
+      </div>
+    </div>
+    <course-card (onDelete)="deleteCourse()" (onViewDetail)="enrolCourse()" firstBtnTitle="Enrol"
+      [selectedCourse]='selected'>
+    </course-card>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:courses/src/components/card/card_component.dart';
 import 'package:courses/src/components/courses/course_service.dart';
@@ -10,27 +11,16 @@ import 'package:courses/src/utils/routes.dart';
   directives: [
     coreDirectives,
     CourseCard,
+    formDirectives,
   ],
   providers: [ClassProvider(CourseService)],
-  template: '''
-  <div class='row'>
-    <p *ngIf='selected == null'>
-      No Selected Course or unknown
-    </p>
-    <course-card
-            *ngIf='selected != null'
-            (onDelete)="deleteCourse()"
-            (onViewDetail)="enrollCourse()"
-            firstBtnTitle="Enroll"
-            [selectedCourse]='selected'>
-    </course-card>
-  </div>
-        ''',
+  templateUrl: './course_detail_template.html',
 )
 class CourseDetail implements OnActivate {
   final CourseService _courseService;
   final Location _location;
   Course selected;
+  bool editMode = false;
 
   CourseDetail(this._courseService, this._location);
 
@@ -47,7 +37,11 @@ class CourseDetail implements OnActivate {
     this._location.back();
   }
 
-  void enrollCourse() {
+  void enrolCourse() {
     this._courseService.enroll(selected);
+  }
+
+  void update() {
+    this._courseService.updateCourse(selected);
   }
 }
